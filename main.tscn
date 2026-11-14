@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://d1ocp5e7rvq5l"]
+
+[ext_resource type="Texture2D" uid="uid://cknxpg6dv8ov" path="res://art/sunset.png" id="1_h2yge"]
+[ext_resource type="Texture2D" uid="uid://xht6k3kily2r" path="res://art/sweep.png" id="2_1bvp3"]
+[ext_resource type="Script" uid="uid://bqhpivp7rdp5a" path="res://scripts/camMaster.cs" id="3_lquwl"]
+[ext_resource type="Script" uid="uid://g83cocu5rj0u" path="res://scripts/houseMaster.cs" id="4_7mycd"]
+[ext_resource type="Texture2D" uid="uid://cnff18bgvoepd" path="res://art/houseTop.png" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://b1ndojfydd5rk" path="res://art/houseBase.png" id="5_7mycd"]
+
+[node name="Main" type="Node2D" unique_id=311791240]
+
+[node name="Sunset" type="Sprite2D" parent="." unique_id=1973894524]
+texture_filter = 1
+position = Vector2(0, -416)
+scale = Vector2(32, 32)
+texture = ExtResource("1_h2yge")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1217243130]
+position = Vector2(0, -324)
+script = ExtResource("3_lquwl")
+
+[node name="Player" type="Node2D" parent="Camera2D" unique_id=1712080346]
+position = Vector2(-176, 308)
+
+[node name="Sweep" type="Sprite2D" parent="Camera2D/Player" unique_id=1184095760]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_1bvp3")
+
+[node name="HouseController" type="Node2D" parent="." unique_id=359289412]
+script = ExtResource("4_7mycd")
+
+[node name="House" type="Node2D" parent="HouseController" unique_id=1345594884]
+
+[node name="HouseTop" type="Sprite2D" parent="HouseController/House" unique_id=398546912]
+texture_filter = 1
+position = Vector2(272, 928)
+scale = Vector2(4, 4)
+texture = ExtResource("4_lquwl")
+centered = false
+
+[node name="HouseBase" type="Sprite2D" parent="HouseController/House" unique_id=1519633933]
+texture_filter = 1
+position = Vector2(272, 992)
+scale = Vector2(4, 4)
+texture = ExtResource("5_7mycd")
+centered = false
